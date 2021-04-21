@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:transiton_screens/widgets/widgets.dart';
 
 class PageStorageKeysScreen extends StatefulWidget {
   final String title;
+  final ScrollController controller;
   PageStorageKeysScreen({
+    this.controller,
     Key key,
     this.title,
   }) : super(key: key);
@@ -12,11 +16,12 @@ class PageStorageKeysScreen extends StatefulWidget {
 
 class _PageStorageKeysScreenState extends State<PageStorageKeysScreen> {
   final _screens = <Widget>[
-    LitItemWidget(key: PageStorageKey('listView1')),
-    Scaffold(),
-    LitItemWidget(key: PageStorageKey('listView2')),
+    ListViewWidget(key: PageStorageKey('listView1')),
+    ListViewWidget(), // Without key
+    ListViewWidget(key: PageStorageKey('listView2')),
   ];
   int currentPage = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,7 +41,12 @@ class _PageStorageKeysScreenState extends State<PageStorageKeysScreen> {
         selectedItemColor: Colors.red,
         unselectedItemColor: Colors.white,
         currentIndex: currentPage,
-        onTap: (page) => setState(() => currentPage = page),
+        onTap: (page) {
+          if (page == currentPage) {
+            print('same screen');
+          }
+          setState(() => currentPage = page);
+        },
         items: [
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
@@ -51,36 +61,6 @@ class _PageStorageKeysScreenState extends State<PageStorageKeysScreen> {
             label: '',
           ),
         ],
-      ),
-    );
-  }
-}
-
-class LitItemWidget extends StatelessWidget {
-  LitItemWidget({
-    Key key,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      padding: EdgeInsets.symmetric(horizontal: 10.0),
-      itemCount: 100,
-      itemBuilder: (context, index) => Padding(
-        padding: EdgeInsets.symmetric(vertical: 5.0),
-        child: ListTile(
-          title: Text(
-            '$index',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 18.0,
-            ),
-          ),
-          tileColor: Colors.red,
-          subtitle: Text(
-            'List Tile',
-            style: TextStyle(color: Colors.white),
-          ),
-        ),
       ),
     );
   }
