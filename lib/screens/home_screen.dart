@@ -14,7 +14,8 @@ class HomeScreen extends StatelessWidget {
     "Page Stroage Bucket",
     "Object Keys",
     "Value Keys",
-    "Unique Keys"
+    "Unique Keys",
+    'Global Keys',
   ];
 
   final _screens = <Widget>[
@@ -23,6 +24,7 @@ class HomeScreen extends StatelessWidget {
     ObjectKeysScreen(title: 'Object Keys'),
     ValueKeysScreen(title: 'Value Keys'),
     UniqueKeysScreen(title: 'Unique Keys'),
+    GlobalKeysScreen(title: 'Global Keys'),
   ];
 
   void _showWidget(BuildContext context, int index) => Navigator.push(
@@ -53,11 +55,18 @@ class HomeScreen extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: ListView.builder(
-          physics: NeverScrollableScrollPhysics(),
-          padding: const EdgeInsets.symmetric(horizontal: 10.0),
-          itemCount: tile.length,
-          itemBuilder: (context, index) => _displayButtonWidget(context, index),
+        body: Container(
+          alignment: Alignment.center,
+          child: Container(
+            height: 300.0,
+            child: ListView.builder(
+              physics: NeverScrollableScrollPhysics(),
+              padding: const EdgeInsets.symmetric(horizontal: 10.0),
+              itemCount: tile.length,
+              itemBuilder: (context, index) =>
+                  _displayButtonWidget(context, index),
+            ),
+          ),
         ),
       );
 }
