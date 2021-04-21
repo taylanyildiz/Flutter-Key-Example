@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:transiton_screens/screens/page_storage_bucket.dart';
 import 'package:transiton_screens/screens/screens.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -13,14 +12,14 @@ class HomeScreen extends StatelessWidget {
   final tile = <String>[
     "PageStorageKeys",
     "PageStroageBucket",
-    "ListView",
+    "Object Keys",
     "Grid View",
   ];
 
   final _screens = <Widget>[
     PageStorageKeysScreen(title: 'PageStorageKeys'),
     PageStorageBucketScreen(title: 'PageStorageBucket'),
-    Scaffold(),
+    ObjectKeysScreen(title: 'Object Keys'),
     Scaffold(),
   ];
 
