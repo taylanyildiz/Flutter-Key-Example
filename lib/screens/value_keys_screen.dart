@@ -56,7 +56,7 @@ class _ValueKeysScreenState extends State<ValueKeysScreen> {
                     labelText: 'User Name',
                     border: OutlineInputBorder(),
                   ),
-                )
+                ),
               ],
             ),
           ),

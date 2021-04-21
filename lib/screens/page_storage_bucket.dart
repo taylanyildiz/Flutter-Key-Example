@@ -29,9 +29,7 @@ class PageStorageBucketScreen extends StatelessWidget {
             ),
           ),
         ),
-        body: ListViewWidget(
-          key: PageStorageKey('list_bucket'),
-        ),
+        body: ListViewWidget(key: PageStorageKey('list_bucket')),
       ),
     );
   }

@@ -67,13 +67,15 @@ class _ObjectKeysScreenState extends State<ObjectKeysScreen> {
           child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: users
-            .map((user) => CustomContainer(
-                  key: ObjectKey(user),
+            .map(
+              (user) => UserWidgets(
+                key: ObjectKey(user),
 
-                  /// key: ValueKey(user),
-                  ///  it works but if 2 object same hashcode value,it doesn't work in this time so we need [ObjectKey]
-                  user: user,
-                ))
+                /// key: ValueKey(user),
+                ///  it works but if 2 object same hashcode value,it doesn't work in this time so we need [ObjectKey]
+                user: user,
+              ),
+            )
             .toList(),
       )),
       floatingActionButton: FloatingActionButton(

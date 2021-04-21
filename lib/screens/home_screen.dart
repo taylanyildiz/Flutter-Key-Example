@@ -14,7 +14,7 @@ class HomeScreen extends StatelessWidget {
     "Page Stroage Bucket",
     "Object Keys",
     "Value Keys",
-    "Global Keys"
+    "Unique Keys"
   ];
 
   final _screens = <Widget>[
@@ -22,7 +22,7 @@ class HomeScreen extends StatelessWidget {
     PageStorageBucketScreen(title: 'PageStorageBucket'),
     ObjectKeysScreen(title: 'Object Keys'),
     ValueKeysScreen(title: 'Value Keys'),
-    Scaffold(),
+    UniqueKeysScreen(title: 'Unique Keys'),
   ];
 
   void _showWidget(BuildContext context, int index) => Navigator.push(
