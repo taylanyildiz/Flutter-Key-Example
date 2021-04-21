@@ -10,16 +10,18 @@ class HomeScreen extends StatelessWidget {
   }) : super(key: key);
 
   final tile = <String>[
-    "PageStorageKeys",
-    "PageStroageBucket",
+    "PageStorage Keys",
+    "Page Stroage Bucket",
     "Object Keys",
-    "Grid View",
+    "Value Keys",
+    "Global Keys"
   ];
 
   final _screens = <Widget>[
     PageStorageKeysScreen(title: 'PageStorageKeys'),
     PageStorageBucketScreen(title: 'PageStorageBucket'),
     ObjectKeysScreen(title: 'Object Keys'),
+    ValueKeysScreen(title: 'Value Keys'),
     Scaffold(),
   ];
 
@@ -51,22 +53,11 @@ class HomeScreen extends StatelessWidget {
           ),
           centerTitle: true,
         ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                height: 200.0,
-                child: ListView.builder(
-                  physics: NeverScrollableScrollPhysics(),
-                  padding: const EdgeInsets.symmetric(horizontal: 10.0),
-                  itemCount: tile.length,
-                  itemBuilder: (context, index) =>
-                      _displayButtonWidget(context, index),
-                ),
-              ),
-            ],
-          ),
+        body: ListView.builder(
+          physics: NeverScrollableScrollPhysics(),
+          padding: const EdgeInsets.symmetric(horizontal: 10.0),
+          itemCount: tile.length,
+          itemBuilder: (context, index) => _displayButtonWidget(context, index),
         ),
       );
 }
